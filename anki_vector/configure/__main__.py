@@ -86,7 +86,7 @@ def get_serial(serial=None):
         serial = os.environ.get('ANKI_ROBOT_SERIAL')
         if not serial:
             print("\n\nPlease find your robot serial number (ex. 00e20100) located on the underside of Vector, or accessible from Vector's debug screen.")
-            serial = input('Enter robot serial number: ')
+            serial = '00903cc9'
         else:
             print("Found robot serial number in environment variable '{}'".format(colored("ANKI_ROBOT_SERIAL", "green")))
     serial = serial.lower()
@@ -147,10 +147,10 @@ def user_authentication(session_id: bytes, cert: bytes, ip: str, name: str) -> s
 def get_session_token(api, username=None):
     print("Enter your email and password. Make sure to use the same account that was used to set up your Vector.")
     if not username:
-        username = input("Enter Email: ")
+        username = 'gabedrlam@gmail.com'
     else:
         print("Using email from command line: {}".format(colored(username, "cyan")))
-    password = getpass("Enter Password: ")
+    password = 'Raphaelle5757+'
     payload = {'username': username, 'password': password}
 
     print("\nAuthenticating with {}...".format(api.name), end="")
@@ -182,7 +182,7 @@ def get_name_and_ip(robot_name=None, ip=None):
         robot_name = os.environ.get('VECTOR_ROBOT_NAME')
         if not robot_name:
             print("\n\nFind your robot name (ex. Vector-A1B2) by placing Vector on the charger and double-clicking Vector's backpack button.")
-            robot_name = input("Enter robot name: ")
+            robot_name = 'Vector-V8B8'
         else:
             print("Found robot name in environment variable '{}'".format(colored("VECTOR_ROBOT_NAME", "green")))
     robot_name = standardize_name(robot_name)
@@ -192,7 +192,7 @@ def get_name_and_ip(robot_name=None, ip=None):
         if not ip:
             print("\n\nFind your robot ip address (ex. 192.168.42.42) by placing Vector on the charger, double-clicking Vector's backpack button,\n"
                   "then raising and lowering his arms. If you see {} on his face, reconnect Vector to your WiFi using the Vector Companion App.".format(colored("XX.XX.XX.XX", "red")))
-            ip = input("Enter robot ip: ")
+            ip = '192.168.1.116'
         else:
             print("Found robot ip address in environment variable '{}'".format(colored("ANKI_ROBOT_HOST", "green")))
     print("Using IP: {}".format(colored(ip, "cyan")))
@@ -294,7 +294,7 @@ def main(api):
     print(__doc__)
 
     valid = ["y", "Y", "yes", "YES"]
-    environ = input("Do you wish to proceed? (y/n) ")
+    environ = 'y'
     if environ not in valid:
         sys.exit("Stopping...")
 
